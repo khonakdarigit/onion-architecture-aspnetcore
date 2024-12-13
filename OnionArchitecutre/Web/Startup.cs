@@ -34,9 +34,9 @@ namespace Web
 
             services.AddDbContextPool<RepositoryDbContext>(builder =>
             {
-                var connectionString = Configuration.GetConnectionString("Database");
+                var connectionString = Configuration.GetConnectionString("DefaultConnection");
 
-                builder.UseNpgsql(connectionString);
+                builder.UseSqlServer(connectionString);
             });
 
             services.AddTransient<ExceptionHandlingMiddleware>();
